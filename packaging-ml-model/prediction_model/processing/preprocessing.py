@@ -10,6 +10,14 @@ create custom preprocessing transformers
 implement fit and transform
 accept input with __init__ method
 '''
+import os
+import sys
+from pathlib import Path
+
+## Adding the below path to avoid module not found error
+PACKAGE_ROOT = Path(os.path.abspath(os.path.dirname(__file__))).parent
+sys.path.append(str(PACKAGE_ROOT))
+
 import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
 from prediction_model.config import config
@@ -42,7 +50,7 @@ class ModeImputer(BaseEstimator, TransformerMixin):
     def fit(self, X, y=None):
         self.mode_dict = {}
         for col in self.variables:
-            self.mode_dict[col] = X[col].mode()
+            self.mode_dict[col] = X[col].mode()[0]
         return self
     
     def transform(self, X):
@@ -68,8 +76,8 @@ class DropColumns(BaseEstimator, TransformerMixin):
 # Domain Processing
 class DomainProcessing(BaseEstimator, TransformerMixin):
 
-    def __init__(self, variables_to_modify=None, variable_to_add=None):
-        self.variables_to_modify = variables_to_modify
+    def __init__(self, variable_to_modify=None, variable_to_add=None):
+        self.variables_to_modify = variable_to_modify
         self.variables_to_add = variable_to_add
 
     def fit(self, X, y=None):

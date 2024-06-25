@@ -1,10 +1,17 @@
+import os
+import sys
+from pathlib import Path
+
+## Adding the below path to avoid module not found error
+PACKAGE_ROOT = Path(os.path.abspath(os.path.dirname(__file__))).parent
+sys.path.append(str(PACKAGE_ROOT))
+
 import pandas as pd
 import numpy as np
 from prediction_model.config import config
 from prediction_model.processing.data_handling import load_dataset, save_pipeline
 from prediction_model.processing import preprocessing as pp
 from prediction_model import pipeline as pipe
-import sys
 
 def perform_training():
     

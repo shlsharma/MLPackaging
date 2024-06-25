@@ -18,7 +18,7 @@ TRAIN_FILE = 'train.csv'
 TEST_FILE = 'test.csv'
 
 MODEL_NAME = 'classification.pkl'
-SAVE_MODEL_PATH = os.path.join.(PACAKAGE_ROOT, 'trained_models')
+SAVE_MODEL_PATH = os.path.join(PACKAGE_ROOT, 'trained_models')
 
 TARGET = 'Loan_Status'
 
