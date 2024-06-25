@@ -25,7 +25,7 @@ TARGET = 'Loan_Status'
 # final features used in the model
 FEATURES = ['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed',
        'ApplicantIncome', 'LoanAmount', 'Loan_Amount_Term', 'Credit_History',
-       'Property_Area']
+       'Property_Area', 'CoapplicantIncome']
 
 NUM_FEATURES = ['ApplicantIncome', 'LoanAmount', 'Loan_Amount_Term']
 
@@ -46,7 +46,7 @@ FEATURES_TO_ENCODE = ['Gender',
  'Credit_History',
  'Property_Area']
 
-FEATURE_TO_MODIFY = 'ApplicantIncome'
+FEATURE_TO_MODIFY = ['ApplicantIncome']
 FEATURE_TO_ADD = 'CoapplicantIncome'
 
 DROP_FEATURES = ['CoapplicantIncome']
